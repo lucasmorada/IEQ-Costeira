@@ -40,19 +40,21 @@
     <!-- Header -->
 <header class="sticky top-0 z-50 bg-blue-900 text-white shadow-lg">
   <div class="container mx-auto px-6 py-4">
-    <div class="flex justify-between items-center">
-        <!-- Logo por cima -->
-        <img src="logo.png" alt="Logo IEQ" 
-             class="absolute -left-4 -top-4 w-16 h-16 object-contain rounded-full border-4 border-white shadow-lg" />
+    <div class="flex items-center justify-between">
+      
+      <!-- Logo + Texto -->
+      <div class="flex items-center space-x-4">
+        <img src="logo.png" alt="Logo IEQ"
+          class="w-12 h-12 object-contain" />
         
-        <!-- Texto à direita -->
         <div>
           <h1 class="text-xl font-bold leading-tight">IEQ COSTEIRA</h1>
+          <p class="text-xs">Araucária - PR</p>
         </div>
       </div>
 
-      <!-- Navegação -->
-      <nav class="hidden md:flex space-x-8">
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex space-x-6">
         <a href="#home" class="hover:text-blue-300 transition">Início</a>
         <a href="#about" class="hover:text-blue-300 transition">Sobre</a>
         <a href="#symbol" class="hover:text-blue-300 transition">Quadrangular</a>
@@ -64,9 +66,11 @@
       <!-- Botão Mobile -->
       <button class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
+
     </div>
   </div>
 </header>
@@ -117,38 +121,63 @@
     </section>
 
     <!-- Quadrangular Symbol Section -->
-    <section id="symbol" class="py-20 bg-blue-900 text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-16 text-center">O EVANGELHO QUADRANGULAR</h2>
-            
-            <div class="flex flex-col md:flex-row items-center justify-center mb-16">
-                <img src="logo-colorida.jpg" alt="logo ieq Costeira" class="w-48 h-48 rounded-full mb-10 md:mb-0 md:mr-16 shadow-xl"></div>
-                
-                <div class="md:w-1/2">
-                    <p class="mb-6">O símbolo da Igreja do Evangelho Quadrangular representa as quatro principais verdades do evangelho pregado por Jesus Cristo e seus apóstolos:</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-black bg-opacity-20 p-4 rounded-lg">
-                            <h3 class="font-bold text-red-400 mb-2">Jesus, o Salvador</h3>
-                            <p>"Ela dará à luz um filho e você deverá dar-lhe o nome de Jesus, porque ele salvará o seu povo dos seus pecados." (Mateus 1:21)</p>
-                        </div>
-                        <div class="bg-black bg-opacity-20 p-4 rounded-lg">
-                            <h3 class="font-bold text-yellow-300 mb-2">Jesus, o Batizador</h3>
-                            <p>"Ele vos batizará com o Espírito Santo e com fogo." (Mateus 3:11)</p>
-                        </div>
-                        <div class="bg-black bg-opacity-20 p-4 rounded-lg">
-                            <h3 class="font-bold text-blue-400 mb-2">Jesus, o Médico</h3>
-                            <p>"O Espírito do Senhor está sobre mim, pois ele me ungiu para pregar boas novas aos pobres. Enviou-me para proclamar liberdade aos presos e recuperação da vista aos cegos." (Lucas 4:18)</p>
-                        </div>
-                        <div class="bg-black bg-opacity-20 p-4 rounded-lg">
-                            <h3 class="font-bold text-green-400 mb-2">Jesus, o Rei que Vem</h3>
-                            <p>"Eis que ele vem com as nuvens, e todo olho o verá." (Apocalipse 1:7)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section id="symbol" class="py-20 bg-blue-900 text-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-16 text-center">O EVANGELHO QUADRANGULAR</h2>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+      <!-- Logo à esquerda -->
+      <div class="flex-shrink-0">
+        <img src="logo-colorida.jpg" alt="Logo IEQ Costeira" class="w-48 h-48 rounded-full shadow-xl">
+      </div>
+
+      <!-- Texto e símbolos -->
+      <div class="md:w-2/3">
+        <p class="mb-10">
+          O símbolo da Igreja do Evangelho Quadrangular representa as quatro principais verdades do evangelho pregado por Jesus Cristo e seus apóstolos:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Salvador - Cruz vermelha -->
+          <div class="relative p-4 rounded-lg bg-red-600">
+            <img src="cruz.png" alt="Cruz" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full p-1 shadow-md">
+            <h3 class="font-bold text-white mb-2">Jesus, o Salvador</h3>
+            <p class="text-white text-sm">
+              "Ela dará à luz um filho e você deverá dar-lhe o nome de Jesus, porque ele salvará o seu povo dos seus pecados." (Mateus 1:21)
+            </p>
+          </div>
+
+          <!-- Batizador - Pomba amarela -->
+          <div class="relative p-4 rounded-lg bg-yellow-400">
+            <img src="pomba.png" alt="Pomba" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full p-1 shadow-md">
+            <h3 class="font-bold text-yellow-900 mb-2">Jesus, o Batizador</h3>
+            <p class="text-yellow-900 text-sm">
+              "Ele vos batizará com o Espírito Santo e com fogo." (Mateus 3:11)
+            </p>
+          </div>
+
+          <!-- Médico - Cálice azul -->
+          <div class="relative p-4 rounded-lg bg-blue-500">
+            <img src="calice.png" alt="Cálice" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full p-1 shadow-md">
+            <h3 class="font-bold text-white mb-2">Jesus, o Médico</h3>
+            <p class="text-white text-sm">
+              "O Espírito do Senhor está sobre mim, pois ele me ungiu para pregar boas novas aos pobres..." (Lucas 4:18)
+            </p>
+          </div>
+
+          <!-- Rei que Vem - Coroa verde -->
+          <div class="relative p-4 rounded-lg bg-green-500">
+            <img src="coroa.png" alt="Coroa" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full p-1 shadow-md">
+            <h3 class="font-bold text-white mb-2">Jesus, o Rei que Vem</h3>
+            <p class="text-white text-sm">
+              "Eis que ele vem com as nuvens, e todo olho o verá." (Apocalipse 1:7)
+            </p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- History Section -->
     <section id="history" class="py-20 bg-gray-50">
