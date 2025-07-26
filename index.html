@@ -12,7 +12,7 @@
             scroll-behavior: smooth;
         }
         .hero-bg {
-            background: linear-gradient(rgba(0, 0,    0, 0.7), rgba(0, 0, 0, 0.7)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5012d50d-1c8d-478f-b035-5ea5e5dacbeb.png');
+            background: linear-gradient(rgba(0, 0,    0, 0.7), rgba(0, 0, 0, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -38,36 +38,41 @@
 <body class="bg-white text-gray-800">
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-blue-900 text-white shadow-lg">
+<header class="sticky top-0 z-50 bg-blue-900 text-white shadow-lg">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
       <!-- Retângulo de fundo -->
-      <div class="bg-white text-blue-900 px-4 py-2 rounded-lg flex items-center space-x-2 shadow">
-        <!-- Símbolo -->
-        <img src="logo.png" alt="Logo IEQ" class="w-10 h-10 object-contain" />
-        <!-- Texto -->
-          <div>
-          <h1 class="text-xl font-bold">IEQ COSTEIRA</h1>
+      <div class="relative bg-white text-blue-900 px-6 py-4 rounded-lg shadow pl-16 flex items-center">
+        <!-- Logo por cima -->
+        <img src="logo.png" alt="Logo IEQ" 
+             class="absolute -left-4 -top-4 w-16 h-16 object-contain rounded-full border-4 border-white shadow-lg" />
+        
+        <!-- Texto à direita -->
+        <div>
+          <h1 class="text-xl font-bold leading-tight">IEQ COSTEIRA</h1>
           <p class="text-xs">Araucária - PR</p>
-                  </div>
-                 </div>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-blue-300 transition">Início</a>
-                    <a href="#about" class="hover:text-blue-300 transition">Sobre</a>
-                    <a href="#symbol" class="hover:text-blue-300 transition">Quadrangular</a>
-                    <a href="#history" class="hover:text-blue-300 transition">20 Anos</a>
-                    <a href="#events" class="hover:text-blue-300 transition">Eventos</a>
-                    <a href="#contact" class="hover:text-blue-300 transition">Contato</a>
-                </nav>
-                <button class="md:hidden focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
         </div>
-    </header>
+      </div>
+
+      <!-- Navegação -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#home" class="hover:text-blue-300 transition">Início</a>
+        <a href="#about" class="hover:text-blue-300 transition">Sobre</a>
+        <a href="#symbol" class="hover:text-blue-300 transition">Quadrangular</a>
+        <a href="#history" class="hover:text-blue-300 transition">20 Anos</a>
+        <a href="#events" class="hover:text-blue-300 transition">Eventos</a>
+        <a href="#contact" class="hover:text-blue-300 transition">Contato</a>
+      </nav>
+
+      <!-- Botão Mobile -->
+      <button class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg text-white py-32 flex items-center">
@@ -87,7 +92,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e52f5c3e-327d-46c6-8a0a-8ce0e1bb5b03.png" alt="Foto externa da Igreja do Evangelho Quadrangular Costeira em Araucária, prédio moderno com fachada azul e branca" class="rounded-lg shadow-xl">
+                    <img src="igreja.webp" alt="igreja" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold mb-6 text-blue-900">Nossa Igreja</h2>
@@ -121,7 +126,7 @@
             <h2 class="text-3xl font-bold mb-16 text-center">O EVANGELHO QUADRANGULAR</h2>
             
             <div class="flex flex-col md:flex-row items-center justify-center mb-16">
-                <img src="logo.png" alt="logo ieq Costeira" class="w-48 h-48 rounded-full mb-10 md:mb-0 md:mr-16 shadow-xl"></div>
+                <img src="logo-colorida.jpg" alt="logo ieq Costeira" class="w-48 h-48 rounded-full mb-10 md:mb-0 md:mr-16 shadow-xl"></div>
                 
                 <div class="md:w-1/2">
                     <p class="mb-6">O símbolo da Igreja do Evangelho Quadrangular representa as quatro principais verdades do evangelho pregado por Jesus Cristo e seus apóstolos:</p>
