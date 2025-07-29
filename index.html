@@ -25,14 +25,7 @@
             width: 2px;
             background: #3b82f6;
         }
-        .quadrangular-symbol {
-            background: conic-gradient(
-                #FF0000 0deg 90deg,
-                #FFD700 90deg 180deg,
-                #0000FF 180deg 270deg,
-                #008000 270deg 360deg
-            );
-        }
+
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -119,64 +112,90 @@
         </div>
     </section>
 
-    <!-- Quadrangular Symbol Section -->
-<section id="symbol" class="py-20 bg-blue-900 text-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-16 text-center">O EVANGELHO QUADRANGULAR</h2>
+  <section id="symbol" class="min-h-screen flex items-center justify-center bg-blue-900 text-white transition-colors duration-500">
+  <div class="flex w-full max-w-7xl px-6">
 
-    <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-      <!-- Logo à esquerda -->
-      <div class="flex-shrink-0">
-        <img src="logo-colorida.jpg" alt="Logo IEQ Costeira" class="w-48 h-48 rounded-full shadow-xl">
-      </div>
-
-      <!-- Texto e símbolos -->
-      <div class="md:w-2/3">
-        <p class="mb-10">
-          O símbolo da Igreja do Evangelho Quadrangular representa as quatro principais verdades do evangelho pregado por Jesus Cristo e seus apóstolos:
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Salvador - Cruz vermelha -->
-          <div class="relative p-4 rounded-lg bg-red-600">
-            <img src="Cruz.png" alt="Cruz" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full shadow-md">
-            <h3 class="font-bold text-white mb-2">Jesus, o Salvador</h3>
-            <p class="text-white text-sm">
-              "Ela dará à luz um filho e você deverá dar-lhe o nome de Jesus, porque ele salvará o seu povo dos seus pecados." (Mateus 1:21)
-            </p>
-          </div>
-
-          <!-- Batizador - Pomba amarela -->
-          <div class="relative p-4 rounded-lg bg-yellow-400">
-            <img src="Pomba.png" alt="Pomba" class="w-11 h-11 absolute -top-5 -left-5 bg-white rounded-full p-0 shadow-md">
-            <h3 class="font-bold text-yellow-900 mb-2">Jesus, o Batizador</h3>
-            <p class="text-yellow-900 text-sm">
-              "Ele vos batizará com o Espírito Santo e com fogo." (Mateus 3:11)
-            </p>
-          </div>
-
-          <!-- Médico - Cálice azul -->
-          <div class="relative p-4 rounded-lg bg-blue-500">
-            <img src="Calice.png" alt="Cálice" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full shadow-md">
-            <h3 class="font-bold text-white mb-2">Jesus, o Médico</h3>
-            <p class="text-white text-sm">
-              "O Espírito do Senhor está sobre mim, pois ele me ungiu para pregar boas novas aos pobres..." (Lucas 4:18)
-            </p>
-          </div>
-
-          <!-- Rei que Vem - Coroa roxa -->
-          <div class="relative p-4 rounded-lg bg-purple-700">
-            <img src="Coroa.png" alt="Coroa" class="w-10 h-10 absolute -top-5 -left-5 bg-white rounded-full shadow-md">
-            <h3 class="font-bold text-white mb-2">Jesus, o Rei que Vem</h3>
-            <p class="text-white text-sm">
-              "Eis que ele vem com as nuvens, e todo olho o verá." (Apocalipse 1:7)
-            </p>
-          </div>
-        </div>
-      </div>
+    <!-- Logo da Quadrangular -->
+    <div class="flex flex-col justify-center items-center mr-10">
+      <img src="logo-colorida.jpg" alt="Logo IEQ" class="w-40 h-40 rounded-full shadow-lg mb-4">
+      <h2 class="text-2xl font-bold text-center">Evangelho Quadrangular</h2>
     </div>
+
+    <!-- Conteúdo que muda -->
+    <div id="content-area" class="flex-1 p-6 bg-opacity-30 rounded-lg shadow-lg transition-all"></div>
+
+    <!-- Abinhas -->
+    <div class="flex flex-col items-center ml-6 space-y-2">
+      <button onclick="showTab('salvador')" class="tab-button bg-red-600 text-white px-2 py-3 rounded-md hover:opacity-90">Cruz</button>
+      <button onclick="showTab('batizador')" class="tab-button bg-yellow-400 text-yellow-900 px-2 py-3 rounded-md hover:opacity-90">Pomba</button>
+      <button onclick="showTab('medico')" class="tab-button bg-blue-500 text-white px-2 py-3 rounded-md hover:opacity-90">Cálice</button>
+      <button onclick="showTab('rei')" class="tab-button bg-purple-700 text-white px-2 py-3 rounded-md hover:opacity-90">Coroa</button>
+    </div>
+
   </div>
 </section>
+
+<style>
+  .tab-button {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  const contentData = {
+    salvador: {
+      bg: 'bg-red-600',
+      icon: 'Cruz.png',
+      title: 'Jesus, o Salvador',
+      verse: '"Ela dará à luz um filho... (Mateus 1:21)"',
+      text: 'Jesus é o Salvador do mundo, que veio nos libertar dos nossos pecados.'
+    },
+    batizador: {
+      bg: 'bg-yellow-400',
+      icon: 'Pomba.png',
+      title: 'Jesus, o Batizador',
+      verse: '"Ele vos batizará com o Espírito Santo e com fogo." (Mateus 3:11)',
+      text: 'Jesus nos batiza com o Espírito Santo, nos enchendo de poder e vida.'
+    },
+    medico: {
+      bg: 'bg-blue-500',
+      icon: 'Calice.png',
+      title: 'Jesus, o Médico',
+      verse: '"O Espírito do Senhor está sobre mim..." (Lucas 4:18)',
+      text: 'Jesus cura os enfermos e restaura a alma de todo aquele que crê.'
+    },
+    rei: {
+      bg: 'bg-purple-700',
+      icon: 'Coroa.png',
+      title: 'Jesus, o Rei que Vem',
+      verse: '"Eis que ele vem com as nuvens..." (Apocalipse 1:7)',
+      text: 'Jesus voltará como Rei para reinar sobre toda a Terra.'
+    }
+  };
+
+  function showTab(key) {
+    const data = contentData[key];
+
+    const section = document.getElementById('symbol');
+    section.className = `min-h-screen flex items-center justify-center ${data.bg} text-white transition-colors duration-500`;
+
+    const contentArea = document.getElementById('content-area');
+    contentArea.innerHTML = `
+      <div class="flex items-start gap-6">
+        <img src="${data.icon}" alt="Símbolo" class="w-16 h-16 rounded-full bg-white shadow-md">
+        <div>
+          <h3 class="text-2xl font-bold mb-2">${data.title}</h3>
+          <p class="mb-2 italic">${data.verse}</p>
+          <p>${data.text}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Carregar o padrão ao iniciar
+  showTab('salvador');
+</script>
 
     <!-- History Section -->
     <section id="history" class="py-20 bg-gray-50">
@@ -362,7 +381,7 @@
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
                     <div class="flex items-center space-x-2 mb-4">
-                        <img src="logo.png" class="w-8 h-8"></div>
+                        <img src="logo.png" class="w-12 h-12"></div>
                         <h3 class="text-xl font-bold">IEQ COSTEIRA</h3>
                     </div>
                     <p class="max-w-xs">Igreja do Evangelho Quadrangular<br>Bairro Costeira, Araucária<br>Celebrando 20 anos de ministério (2003-2023)</p>
