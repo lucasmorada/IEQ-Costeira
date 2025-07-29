@@ -112,89 +112,55 @@
         </div>
     </section>
 
-  <section id="symbol" class="min-h-screen flex items-center justify-center bg-blue-900 text-white transition-colors duration-500">
-  <div class="flex w-full max-w-7xl px-6">
+  <section class="relative w-full h-[500px] flex items-center justify-center overflow-hidden bg-gray-100">
+  <!-- Container de páginas -->
+  <div class="relative w-[800px] h-[400px]">
 
-    <!-- Logo da Quadrangular -->
-    <div class="flex flex-col justify-center items-center mr-10">
-      <img src="logo-colorida.jpg" alt="Logo IEQ" class="w-40 h-40 rounded-full shadow-lg mb-4">
-      <h2 class="text-2xl font-bold text-center">Evangelho Quadrangular</h2>
+    <!-- Abas -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-2">
+      <button onclick="showPage(0)" class="w-6 h-24 bg-red-600 rounded-r-xl hover:opacity-80"></button>
+      <button onclick="showPage(1)" class="w-6 h-24 bg-yellow-400 rounded-r-xl hover:opacity-80"></button>
+      <button onclick="showPage(2)" class="w-6 h-24 bg-blue-500 rounded-r-xl hover:opacity-80"></button>
+      <button onclick="showPage(3)" class="w-6 h-24 bg-purple-700 rounded-r-xl hover:opacity-80"></button>
     </div>
 
-    <!-- Conteúdo que muda -->
-    <div id="content-area" class="flex-1 p-6 bg-opacity-30 rounded-lg shadow-lg transition-all"></div>
-
-    <!-- Abinhas -->
-    <div class="flex flex-col items-center ml-6 space-y-2">
-      <button onclick="showTab('salvador')" class="tab-button bg-red-600 text-white px-2 py-3 rounded-md hover:opacity-90">Cruz</button>
-      <button onclick="showTab('batizador')" class="tab-button bg-yellow-400 text-yellow-900 px-2 py-3 rounded-md hover:opacity-90">Pomba</button>
-      <button onclick="showTab('medico')" class="tab-button bg-blue-500 text-white px-2 py-3 rounded-md hover:opacity-90">Cálice</button>
-      <button onclick="showTab('rei')" class="tab-button bg-purple-700 text-white px-2 py-3 rounded-md hover:opacity-90">Coroa</button>
+    <!-- Cartões/páginas -->
+    <div id="pages" class="relative w-full h-full">
+      <div class="page absolute inset-0 bg-red-600 text-white p-8 rounded-3xl transition-all duration-500 z-10">
+        <h2 class="text-2xl font-bold mb-4">Jesus, o Salvador</h2>
+        <img src="Cruz.png" alt="Cruz" class="w-12 mb-4">
+        <p>"Ela dará à luz um filho..." (Mateus 1:21)</p>
+      </div>
+      <div class="page absolute inset-0 bg-yellow-400 text-yellow-900 p-8 rounded-3xl transition-all duration-500 translate-x-6 z-0">
+        <h2 class="text-2xl font-bold mb-4">Jesus, o Batizador</h2>
+        <img src="Pomba.png" alt="Pomba" class="w-12 mb-4">
+        <p>"Ele vos batizará com o Espírito Santo..." (Mateus 3:11)</p>
+      </div>
+      <div class="page absolute inset-0 bg-blue-500 text-white p-8 rounded-3xl transition-all duration-500 translate-x-12 z-0">
+        <h2 class="text-2xl font-bold mb-4">Jesus, o Médico</h2>
+        <img src="Calice.png" alt="Cálice" class="w-12 mb-4">
+        <p>"O Espírito do Senhor está sobre mim..." (Lucas 4:18)</p>
+      </div>
+      <div class="page absolute inset-0 bg-purple-700 text-white p-8 rounded-3xl transition-all duration-500 translate-x-20 z-0">
+        <h2 class="text-2xl font-bold mb-4">Jesus, o Rei que Vem</h2>
+        <img src="Coroa.png" alt="Coroa" class="w-12 mb-4">
+        <p>"Eis que ele vem com as nuvens..." (Apocalipse 1:7)</p>
+      </div>
     </div>
-
   </div>
 </section>
 
-<style>
-  .tab-button {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
-</style>
-
 <script>
-  const contentData = {
-    salvador: {
-      bg: 'bg-red-600',
-      icon: 'Cruz.png',
-      title: 'Jesus, o Salvador',
-      verse: '"Ela dará à luz um filho... (Mateus 1:21)"',
-      text: 'Jesus é o Salvador do mundo, que veio nos libertar dos nossos pecados.'
-    },
-    batizador: {
-      bg: 'bg-yellow-400',
-      icon: 'Pomba.png',
-      title: 'Jesus, o Batizador',
-      verse: '"Ele vos batizará com o Espírito Santo e com fogo." (Mateus 3:11)',
-      text: 'Jesus nos batiza com o Espírito Santo, nos enchendo de poder e vida.'
-    },
-    medico: {
-      bg: 'bg-blue-500',
-      icon: 'Calice.png',
-      title: 'Jesus, o Médico',
-      verse: '"O Espírito do Senhor está sobre mim..." (Lucas 4:18)',
-      text: 'Jesus cura os enfermos e restaura a alma de todo aquele que crê.'
-    },
-    rei: {
-      bg: 'bg-purple-700',
-      icon: 'Coroa.png',
-      title: 'Jesus, o Rei que Vem',
-      verse: '"Eis que ele vem com as nuvens..." (Apocalipse 1:7)',
-      text: 'Jesus voltará como Rei para reinar sobre toda a Terra.'
-    }
-  };
-
-  function showTab(key) {
-    const data = contentData[key];
-
-    const section = document.getElementById('symbol');
-    section.className = `min-h-screen flex items-center justify-center ${data.bg} text-white transition-colors duration-500`;
-
-    const contentArea = document.getElementById('content-area');
-    contentArea.innerHTML = `
-      <div class="flex items-start gap-6">
-        <img src="${data.icon}" alt="Símbolo" class="w-16 h-16 rounded-full bg-white shadow-md">
-        <div>
-          <h3 class="text-2xl font-bold mb-2">${data.title}</h3>
-          <p class="mb-2 italic">${data.verse}</p>
-          <p>${data.text}</p>
-        </div>
-      </div>
-    `;
+  function showPage(index) {
+    const pages = document.querySelectorAll(".page");
+    pages.forEach((page, i) => {
+      page.style.zIndex = i === index ? 10 : 0;
+      page.style.transform = i === index ? "translateX(0)" : `translateX(${(i - index) * 24}px)`;
+    });
   }
 
-  // Carregar o padrão ao iniciar
-  showTab('salvador');
+  // Mostrar a primeira por padrão
+  showPage(0);
 </script>
 
     <!-- History Section -->
