@@ -112,105 +112,107 @@
         </div>
     </section>
 
-  <section class="cartelas-section">
-  <div class="cartelas-container">
-    <img src="logo-branca.png" alt="Logo" class="logo-branca" />
-    <button class="seta esquerda" onclick="scrollCartelas('left')">&#10094;</button>
-    <div class="cartelas-wrapper" id="cartelasWrapper">
-      <div class="cartela">Cartela 1</div>
-      <div class="cartela">Cartela 2</div>
-      <div class="cartela">Cartela 3</div>
-      <div class="cartela">Cartela 4</div>
-      <div class="cartela">Cartela 5</div>
+  <section class="cartela-section">
+  <div class="cartela-container">
+    <button class="arrow left" onclick="scrollCartelas('left')">❮</button>
+    <div class="cartelas" id="cartelaScroll">
+      <div class="cartela">
+        <img src="sua-logo.png" alt="Logo" class="logo-cartela" />
+        <h3>Título 1</h3>
+        <p>Texto da primeira cartela.</p>
+      </div>
+      <div class="cartela">
+        <h3>Título 2</h3>
+        <p>Texto da segunda cartela.</p>
+      </div>
+      <div class="cartela">
+        <h3>Título 3</h3>
+        <p>Texto da terceira cartela.</p>
+      </div>
+      <!-- adicione mais cartelas se quiser -->
     </div>
-    <button class="seta direita" onclick="scrollCartelas('right')">&#10095;</button>
+    <button class="arrow right" onclick="scrollCartelas('right')">❯</button>
   </div>
 </section>
 
 <style>
-.cartelas-section {
+.cartela-section {
   width: 100%;
-  background-color: #111; /* Cor de fundo escura pra destacar */
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fff, #f7f7f7);
   padding: 40px 0;
+}
+
+.cartela-container {
   position: relative;
+  width: 100%;
+  max-width: 100vw;
   overflow: hidden;
 }
 
-.cartelas-container {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.logo-branca {
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  height: 60px;
-  z-index: 2;
-}
-
-.cartelas-wrapper {
+.cartelas {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 60px 60px 20px 60px;
-  scrollbar-width: none;
-}
-.cartelas-wrapper::-webkit-scrollbar {
-  display: none;
+  padding: 0 48px;
 }
 
 .cartela {
-  flex: 0 0 auto;
-  min-width: 300px;
-  height: 180px;
-  background: #fff;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  flex: 0 0 300px;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  min-height: 240px;
+  position: relative;
 }
 
-.seta {
+.logo-cartela {
+  width: 40px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #fff;
+  background: white;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
+  font-size: 32px;
+  padding: 4px 12px;
   cursor: pointer;
   z-index: 2;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.seta.esquerda {
-  left: 10px;
+
+.arrow.left {
+  left: 8px;
 }
-.seta.direita {
-  right: 10px;
+
+.arrow.right {
+  right: 8px;
+}
+
+.cartelas::-webkit-scrollbar {
+  display: none;
 }
 </style>
 
 <script>
-function scrollCartelas(direcao) {
-  const wrapper = document.getElementById('cartelasWrapper');
-  const scrollAmount = 320;
-
-  if (direcao === 'left') {
-    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+function scrollCartelas(direction) {
+  const scrollContainer = document.getElementById('cartelaScroll');
+  const scrollAmount = 320; // ajusta conforme largura da cartela + gap
+  if (direction === 'right') {
+    scrollContainer.scrollLeft += scrollAmount;
   } else {
-    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    scrollContainer.scrollLeft -= scrollAmount;
   }
 }
 </script>
-
 
     <!-- History Section -->
     <section id="history" class="py-20 bg-gray-50">
