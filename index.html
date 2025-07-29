@@ -112,78 +112,72 @@
         </div>
     </section>
 
-  <section class="relative w-full h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
-  <!-- Container com as páginas -->
-  <div id="cardsContainer" class="relative flex transition-transform duration-500 h-[80%] w-full max-w-none pl-[15%]">
-    <!-- Cartela 1 -->
-    <div class="card flex-shrink-0 w-[70%] h-full bg-red-600 text-white rounded-3xl shadow-xl p-10 mr-[-50px] z-30">
+  <section class="relative w-full h-screen overflow-hidden bg-white">
+  <!-- Slides container -->
+  <div id="slidesWrapper" class="flex transition-transform duration-700 ease-in-out h-full">
+    <!-- Slide 1 - Vermelho -->
+    <div class="min-w-full flex bg-red-600 rounded-r-[4rem] text-white items-center justify-center flex-col px-10">
+      <img src="Cruz.png" class="w-20 mb-6" alt="Cruz">
       <h2 class="text-4xl font-bold mb-4">Jesus, o Salvador</h2>
-      <img src="Cruz.png" class="w-14 mb-4" alt="Cruz">
-      <p>"Ela dará à luz um filho..." (Mateus 1:21)</p>
+      <p class="max-w-lg text-center">"Ela dará à luz um filho..." <br>(Mateus 1:21)</p>
     </div>
 
-    <!-- Cartela 2 -->
-    <div class="card flex-shrink-0 w-[70%] h-full bg-yellow-400 text-yellow-900 rounded-3xl shadow-xl p-10 mr-[-50px] z-20">
+    <!-- Slide 2 - Amarelo -->
+    <div class="min-w-full flex bg-yellow-400 text-yellow-900 rounded-r-[4rem] items-center justify-center flex-col px-10">
+      <img src="Pomba.png" class="w-20 mb-6" alt="Pomba">
       <h2 class="text-4xl font-bold mb-4">Jesus, o Batizador</h2>
-      <img src="Pomba.png" class="w-14 mb-4" alt="Pomba">
-      <p>"Ele vos batizará com o Espírito Santo..." (Mateus 3:11)</p>
+      <p class="max-w-lg text-center">"Ele vos batizará com o Espírito Santo..." <br>(Mateus 3:11)</p>
     </div>
 
-    <!-- Cartela 3 -->
-    <div class="card flex-shrink-0 w-[70%] h-full bg-blue-500 text-white rounded-3xl shadow-xl p-10 mr-[-50px] z-10">
+    <!-- Slide 3 - Azul -->
+    <div class="min-w-full flex bg-blue-600 text-white rounded-r-[4rem] items-center justify-center flex-col px-10">
+      <img src="Calice.png" class="w-20 mb-6" alt="Cálice">
       <h2 class="text-4xl font-bold mb-4">Jesus, o Médico</h2>
-      <img src="Calice.png" class="w-14 mb-4" alt="Cálice">
-      <p>"O Espírito do Senhor está sobre mim..." (Lucas 4:18)</p>
+      <p class="max-w-lg text-center">"O Espírito do Senhor está sobre mim..." <br>(Lucas 4:18)</p>
     </div>
 
-    <!-- Cartela 4 -->
-    <div class="card flex-shrink-0 w-[70%] h-full bg-purple-700 text-white rounded-3xl shadow-xl p-10 mr-[-50px] z-0">
+    <!-- Slide 4 - Roxo -->
+    <div class="min-w-full flex bg-purple-600 text-white rounded-r-[4rem] items-center justify-center flex-col px-10">
+      <img src="Coroa.png" class="w-20 mb-6" alt="Coroa">
       <h2 class="text-4xl font-bold mb-4">Jesus, o Rei que Vem</h2>
-      <img src="Coroa.png" class="w-14 mb-4" alt="Coroa">
-      <p>"Eis que ele vem com as nuvens..." (Apocalipse 1:7)</p>
+      <p class="max-w-lg text-center">"Eis que ele vem com as nuvens..." <br>(Apocalipse 1:7)</p>
     </div>
   </div>
 
-  <!-- Seta esquerda -->
-  <button id="prevBtn" onclick="moveCard(-1)"
-    class="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white p-3 rounded-full hover:bg-opacity-70 hidden z-50">
+  <!-- Botões de navegação -->
+  <button id="prevBtn" onclick="moveSlide(-1)"
+    class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black bg-opacity-40 p-3 rounded-full hover:bg-opacity-70 z-50 hidden">
     ◀
   </button>
-
-  <!-- Seta direita -->
-  <button id="nextBtn" onclick="moveCard(1)"
-    class="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white p-3 rounded-full hover:bg-opacity-70 z-50">
+  <button id="nextBtn" onclick="moveSlide(1)"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black bg-opacity-40 p-3 rounded-full hover:bg-opacity-70 z-50">
     ▶
   </button>
 </section>
 
 <script>
-  let currentCard = 0;
-  const cards = document.querySelectorAll('.card');
-  const container = document.getElementById('cardsContainer');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
+  let currentIndex = 0;
+  const totalSlides = document.querySelectorAll("#slidesWrapper > div").length;
+  const wrapper = document.getElementById("slidesWrapper");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
-  function updateView() {
-    const offset = -currentCard * 350; // distância de recuo horizontal
-    container.style.transform = `translateX(${offset}px)`;
-
-    // Mostrar ou esconder botões
-    prevBtn.style.display = currentCard === 0 ? 'none' : 'block';
-    nextBtn.style.display = currentCard === cards.length - 1 ? 'none' : 'block';
+  function updateSlide() {
+    const offset = -currentIndex * 100;
+    wrapper.style.transform = `translateX(${offset}%)`;
+    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    nextBtn.style.display = currentIndex === totalSlides - 1 ? "none" : "block";
   }
 
-  function moveCard(direction) {
-    currentCard += direction;
-    if (currentCard < 0) currentCard = 0;
-    if (currentCard >= cards.length) currentCard = cards.length - 1;
-    updateView();
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= totalSlides) currentIndex = totalSlides - 1;
+    updateSlide();
   }
 
-  // Inicial
-  updateView();
+  updateSlide();
 </script>
-
 
     <!-- History Section -->
     <section id="history" class="py-20 bg-gray-50">
