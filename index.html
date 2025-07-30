@@ -112,143 +112,111 @@
         </div>
     </section>
 
-  <section class="quadrangular-cards">
-  <div class="card-container">
-    <div class="card red active">
-      <div class="content">
-        <img src="caminho/cruz.png" class="icon" />
-        <h2>Jesus, o Salvador</h2>
-        <p>Representado pela cruz vermelha, simboliza a salvação oferecida por Jesus Cristo.</p>
-      </div>
+  <section class="quadrangular-pilha">
+  <div class="cards-wrapper">
+    <div class="card red">
+      <img src="caminho/cruz.png" class="icon" />
+      <h2>Jesus, o Salvador</h2>
     </div>
     <div class="card yellow">
-      <div class="content">
-        <img src="caminho/pomba.png" class="icon" />
-        <h2>Jesus, o Batizador com o Espírito Santo</h2>
-        <p>Representado pela pomba amarela, símbolo do Espírito Santo.</p>
-      </div>
+      <img src="caminho/pomba.png" class="icon" />
+      <h2>Jesus, o Batizador</h2>
     </div>
     <div class="card blue">
-      <div class="content">
-        <img src="caminho/calice.png" class="icon" />
-        <h2>Jesus, o Médico</h2>
-        <p>Representado pelo cálice azul, simbolizando cura divina e milagres.</p>
-      </div>
+      <img src="caminho/calice.png" class="icon" />
+      <h2>Jesus, o Médico</h2>
     </div>
     <div class="card purple">
-      <div class="content">
-        <img src="caminho/coroa.png" class="icon" />
-        <h2>Jesus, o Rei que Voltará</h2>
-        <p>Representado pela coroa roxa, apontando para a segunda vinda gloriosa de Cristo.</p>
-      </div>
+      <img src="caminho/coroa.png" class="icon" />
+      <h2>Jesus, o Rei</h2>
     </div>
   </div>
-  <button class="next-btn">→</button>
+  <button class="next-card">→</button>
 </section>
 <style>
 
-.quadrangular-cards {
+.quadrangular-pilha {
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background: white;
+  overflow: hidden;
   font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-container {
+.cards-wrapper {
+  display: flex;
   position: relative;
-  width: 100%;
-  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform: translateX(0);
 }
 
 .card {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 60px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  transform: translateX(100%);
-  opacity: 0;
-  transition: all 0.6s ease-in-out;
-  z-index: 0;
-  color: #fff;
+  flex-shrink: 0;
+  width: 300px;
+  height: 400px;
+  border-radius: 30px;
+  margin-left: -100px; /* sobreposição horizontal */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.6s ease;
+}
+
+.card h2 {
+  margin-top: 20px;
+  font-size: 22px;
   text-align: center;
-  flex-direction: column;
 }
-
-.card.active {
-  transform: translateX(0);
-  opacity: 1;
-  z-index: 2;
-}
-
-.card.exit-left {
-  transform: translateX(-100%);
-  opacity: 0;
-  z-index: 1;
-}
-
-.card.red { background: #ff3b30; }
-.card.yellow { background: #ffd43b; color: #333; }
-.card.blue { background: #1c4db0; }
-.card.purple { background: #9147ff; }
 
 .icon {
-  width: 80px;
-  margin-bottom: 20px;
+  width: 60px;
+  height: 60px;
 }
 
-.next-btn {
+.card.red { background: #ff3b30; z-index: 4; }
+.card.yellow { background: #ffd43b; color: #222; z-index: 3; }
+.card.blue { background: #1c4db0; z-index: 2; }
+.card.purple { background: #9147ff; z-index: 1; }
+
+.next-card {
   position: absolute;
-  bottom: 30px;
-  right: 40px;
-  background: rgba(0,0,0,0.2);
-  color: white;
+  right: 30px;
+  bottom: 40px;
+  background: #00000010;
   border: none;
-  font-size: 30px;
   border-radius: 50%;
   width: 60px;
   height: 60px;
+  font-size: 24px;
   cursor: pointer;
-  z-index: 3;
-  transition: background 0.3s;
+  z-index: 10;
 }
 
-.next-btn:hover {
-  background: rgba(0,0,0,0.4);
-}
 </style>
 
 <script>
-  const cards = document.querySelectorAll('.quadrangular-cards .card');
-  const btn = document.querySelector('.next-btn');
+  const wrapper = document.querySelector('.cards-wrapper');
+  const cards = document.querySelectorAll('.card');
+  const nextBtn = document.querySelector('.next-card');
   let current = 0;
 
-  btn.addEventListener('click', () => {
-    cards[current].classList.remove('active');
-    cards[current].classList.add('exit-left');
-
-    current = (current + 1) % cards.length;
-
-    cards[current].classList.add('active');
-
-    setTimeout(() => {
-      cards.forEach((card, index) => {
-        if (index !== current) {
-          card.classList.remove('active', 'exit-left');
-          card.style.zIndex = 0;
-        } else {
-          card.style.zIndex = 2;
-        }
-      });
-    }, 600);
+  nextBtn.addEventListener('click', () => {
+    if (current < cards.length - 1) {
+      current++;
+      wrapper.style.transform = `translateX(-${current * 100}px)`;
+    } else {
+      current = 0;
+      wrapper.style.transform = `translateX(0)`;
+    }
   });
+
 </script>
 
     <!-- History Section -->
